@@ -273,4 +273,6 @@ btnLimpiar.addEventListener("click", function () {
 
     resultado.classList.add("oculto");
 
-});  
+}); 
+
+console.log("HwlloWorld");
