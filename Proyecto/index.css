@@ -1,0 +1,204 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background: #fff;
+    color: #222;
+    line-height: 1.5;
+}
+
+/* Encabezado: solo texto */
+header {
+    padding: 48px 20px 8px;
+}
+
+.header-contenido {
+    max-width: 640px;
+    margin: auto;
+}
+
+header h1 {
+    font-size: 30px;
+    margin-bottom: 8px;
+}
+
+.descripcion {
+    color: #666;
+    font-size: 16px;
+}
+
+/* Elementos decorativos ocultos */
+.etiqueta,
+.icono-empresa,
+.check,
+.numero {
+    display: none;
+}
+
+main {
+    max-width: 640px;
+    margin: 0 auto;
+    padding: 0 20px 40px;
+}
+
+.contenedor {
+    padding: 32px 0;
+}
+
+.titulo-seccion {
+    margin-bottom: 24px;
+}
+
+.titulo-seccion h2,
+.resultado-header h2 {
+    font-size: 20px;
+    margin-bottom: 4px;
+}
+
+.titulo-seccion p,
+.texto-resultado {
+    color: #666;
+    font-size: 15px;
+}
+
+/* Formulario en una sola columna */
+.grid {
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+}
+
+.campo {
+    display: flex;
+    flex-direction: column;
+}
+
+.campo-completo {
+    margin-bottom: 18px;
+}
+
+label {
+    font-size: 14px;
+    margin-bottom: 6px;
+}
+
+input,
+select {
+    width: 100%;
+    padding: 10px 12px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    background: #fff;
+    font-size: 15px;
+}
+
+input:focus,
+select:focus {
+    outline: 2px solid #222;
+    outline-offset: 1px;
+}
+
+/* Botones */
+.botones {
+    display: flex;
+    gap: 10px;
+    margin-top: 28px;
+}
+
+button {
+    padding: 10px 20px;
+    border-radius: 6px;
+    font-size: 15px;
+    cursor: pointer;
+}
+
+.btn-principal {
+    background: #222;
+    color: #fff;
+    border: 1px solid #222;
+}
+
+.btn-secundario {
+    background: #fff;
+    color: #222;
+    border: 1px solid #ccc;
+}
+
+/* Resultados: lista simple */
+.resultados {
+    border-top: 1px solid #ddd;
+}
+
+.resultado-header {
+    margin-bottom: 8px;
+}
+
+.texto-resultado {
+    margin-bottom: 16px;
+}
+
+.resultado-grid {
+    display: block;
+}
+
+.tarjeta {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: 16px;
+    padding: 12px 0;
+    border-bottom: 1px solid #eee;
+}
+
+.categoria {
+    color: #666;
+    font-size: 14px;
+}
+
+.tarjeta h3 {
+    font-size: 15px;
+    font-weight: bold;
+    text-align: right;
+}
+
+.resumen {
+    margin-top: 24px;
+}
+
+.resumen h3 {
+    font-size: 16px;
+    margin-bottom: 6px;
+}
+
+.resumen p {
+    color: #444;
+}
+
+.oculto {
+    display: none;
+}
+
+footer {
+    text-align: center;
+    color: #999;
+    font-size: 13px;
+    padding: 24px;
+}
+
+@media (max-width: 700px) {
+    header h1 {
+        font-size: 26px;
+    }
+
+    .botones {
+        flex-direction: column;
+    }
+
+    button {
+        width: 100%;
+    }
+}
