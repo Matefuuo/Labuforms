@@ -1,11 +1,404 @@
-<!DOCTYPE html>
-<html lang="en">
+index.html: <!DOCTYPE html>
+<html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+
+    <title>Clasificador de Empresas</title>
+
+    <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
-    
+
+    <header>
+        <div class="header-contenido">
+            <div>
+                <p class="etiqueta">Emprendimiento</p>
+                <h1>Clasificador de Empresas</h1>
+                <p class="descripcion">
+                    Ingresa los datos de una empresa y descubre automáticamente
+                    cómo se clasifica.
+                </p>
+            </div>
+
+            <div class="icono-empresa">
+                🏢
+            </div>
+        </div>
+    </header>
+
+
+    <main>
+
+        <section class="contenedor">
+
+            <div class="titulo-seccion">
+                <h2>Datos de la empresa</h2>
+                <p>Completa todos los campos para realizar la clasificación.</p>
+            </div>
+
+
+            <form id="formEmpresa">
+
+                <!-- NOMBRE -->
+                <div class="campo campo-completo">
+
+                    <label for="nombre">
+                        Nombre de la empresa
+                    </label>
+
+                    <input
+                        type="text"
+                        id="nombre"
+                        placeholder="Ejemplo: EcoMuebles"
+                        required
+                    >
+
+                </div>
+
+
+                <div class="grid">
+
+                    <!-- EMPLEADOS -->
+                    <div class="campo">
+
+                        <label for="empleados">
+                            Cantidad de colaboradores
+                        </label>
+
+                        <input
+                            type="number"
+                            id="empleados"
+                            min="1"
+                            placeholder="Ejemplo: 25"
+                            required
+                        >
+
+                    </div>
+
+
+                    <!-- AMBITO -->
+                    <div class="campo">
+
+                        <label for="ambito">
+                            Ámbito de operación
+                        </label>
+
+                        <select id="ambito" required>
+
+                            <option value="">
+                                Selecciona una opción
+                            </option>
+
+                            <option value="Local">
+                                Local
+                            </option>
+
+                            <option value="Nacional">
+                                Nacional
+                            </option>
+
+                            <option value="Multinacional">
+                                Multinacional
+                            </option>
+
+                        </select>
+
+                    </div>
+
+
+                    <!-- LUCRO -->
+                    <div class="campo">
+
+                        <label for="lucro">
+                            ¿La empresa tiene fines de lucro?
+                        </label>
+
+                        <select id="lucro" required>
+
+                            <option value="">
+                                Selecciona una opción
+                            </option>
+
+                            <option value="si">
+                                Sí
+                            </option>
+
+                            <option value="no">
+                                No
+                            </option>
+
+                        </select>
+
+                    </div>
+
+
+                    <!-- CAPITAL -->
+                    <div class="campo">
+
+                        <label for="capital">
+                            Origen del capital
+                        </label>
+
+                        <select id="capital" required>
+
+                            <option value="">
+                                Selecciona una opción
+                            </option>
+
+                            <option value="Privada">
+                                Privado
+                            </option>
+
+                            <option value="Publica">
+                                Público
+                            </option>
+
+                            <option value="Mixta">
+                                Mixto
+                            </option>
+
+                        </select>
+
+                    </div>
+
+
+                    <!-- SECTOR -->
+                    <div class="campo">
+
+                        <label for="sector">
+                            Actividad principal
+                        </label>
+
+                        <select id="sector" required>
+
+                            <option value="">
+                                Selecciona una opción
+                            </option>
+
+                            <option value="Primario">
+                                Agricultura, pesca, ganadería o extracción
+                            </option>
+
+                            <option value="Secundario">
+                                Industria, fabricación o construcción
+                            </option>
+
+                            <option value="Terciario">
+                                Comercio o servicios
+                            </option>
+
+                        </select>
+
+                    </div>
+
+
+                    <!-- FORMA JURIDICA -->
+                    <div class="campo">
+
+                        <label for="juridica">
+                            Forma jurídica
+                        </label>
+
+                        <select id="juridica" required>
+
+                            <option value="">
+                                Selecciona una opción
+                            </option>
+
+                            <option value="Empresa individual">
+                                Empresa individual
+                            </option>
+
+                            <option value="Sociedad Anónima">
+                                Sociedad Anónima (S.A.)
+                            </option>
+
+                            <option value="Sociedad de Responsabilidad Limitada">
+                                Sociedad de Responsabilidad Limitada (S.R.L.)
+                            </option>
+
+                            <option value="Cooperativa">
+                                Cooperativa
+                            </option>
+
+                            <option value="Asociación">
+                                Asociación
+                            </option>
+
+                        </select>
+
+                    </div>
+
+                </div>
+
+
+                <div class="botones">
+
+                    <button type="submit" class="btn-principal">
+                        Clasificar empresa
+                    </button>
+
+                    <button type="reset" class="btn-secundario" id="btnLimpiar">
+                        Limpiar
+                    </button>
+
+                </div>
+
+            </form>
+
+        </section>
+
+
+        <!-- RESULTADOS -->
+
+        <section
+            class="contenedor resultados oculto"
+            id="resultado"
+        >
+
+            <div class="resultado-header">
+
+                <div>
+                    <p class="etiqueta">Resultado</p>
+
+                    <h2 id="nombreResultado">
+                        Clasificación
+                    </h2>
+                </div>
+
+                <div class="check">
+                    ✓
+                </div>
+
+            </div>
+
+
+            <p class="texto-resultado">
+                De acuerdo con la información ingresada, la empresa se
+                clasifica de la siguiente manera:
+            </p>
+
+
+            <div class="resultado-grid">
+
+
+                <div class="tarjeta">
+
+                    <span class="numero">01</span>
+
+                    <div>
+                        <p class="categoria">Ámbito</p>
+                        <h3 id="resultadoAmbito"></h3>
+                    </div>
+
+                </div>
+
+
+                <div class="tarjeta">
+
+                    <span class="numero">02</span>
+
+                    <div>
+                        <p class="categoria">
+                            Destino de beneficios
+                        </p>
+
+                        <h3 id="resultadoBeneficio"></h3>
+                    </div>
+
+                </div>
+
+
+                <div class="tarjeta">
+
+                    <span class="numero">03</span>
+
+                    <div>
+                        <p class="categoria">
+                            Origen del capital
+                        </p>
+
+                        <h3 id="resultadoCapital"></h3>
+                    </div>
+
+                </div>
+
+
+                <div class="tarjeta">
+
+                    <span class="numero">04</span>
+
+                    <div>
+                        <p class="categoria">
+                            Tamaño
+                        </p>
+
+                        <h3 id="resultadoTamano"></h3>
+                    </div>
+
+                </div>
+
+
+                <div class="tarjeta">
+
+                    <span class="numero">05</span>
+
+                    <div>
+                        <p class="categoria">
+                            Sector económico
+                        </p>
+
+                        <h3 id="resultadoSector"></h3>
+                    </div>
+
+                </div>
+
+
+                <div class="tarjeta">
+
+                    <span class="numero">06</span>
+
+                    <div>
+                        <p class="categoria">
+                            Forma jurídica
+                        </p>
+
+                        <h3 id="resultadoJuridica"></h3>
+                    </div>
+
+                </div>
+
+
+            </div>
+
+
+            <div class="resumen">
+
+                <h3>Resumen de clasificación</h3>
+
+                <p id="resumenEmpresa"></p>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <footer>
+
+        <p>
+            Clasificador de Empresas · Emprendimiento
+        </p>
+
+    </footer>
+
+
+    <script src="script.js"></script>
+
 </body>
+
 </html>
